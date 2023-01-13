@@ -2,13 +2,15 @@ name: 'Remind to update the summary'
 
 on:
   schedule:
-    - cron: '0 0 * * FRI'
+    - cron: '0 10 * * MON'
+    - cron: '0 12 * * TUE'
+    - cron: '0 15 * * FRI'
   workflow_dispatch:
 
 env:
-  REMINDER_MESSAGE: 'Just do it!'
-  ZULIP_STREAM: '_hack-fridays'
-  ZULIP_TOPIC: 'Team-OS What Do You Do? (Hack Friday)'
+  REMINDER_MESSAGE: '@*team-os* don't forget to update your latest work items in [TeamOS - What Do You Do?](https://github.com/people-os/team-os-wdyd/blob/master/SUMMARY.md). The summary will be published on Monday, 15 minutes before the company all hands call.'
+  ZULIP_STREAM: 'loop/team-os'
+  ZULIP_TOPIC: 'TeamOS - WDYD?'
 
 jobs:
   publish:

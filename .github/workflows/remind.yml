@@ -1,0 +1,22 @@
+name: 'Remind to update the summary'
+
+on:
+  schedule:
+    - cron: '0 12 * * FRI'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: 'Send the reminder'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Send the message to Zulip'
+        uses: zulip/github-actions-zulip/send-message@v1
+        with:
+          api-key: ${{ secrets.ZULIP_API_KEY }}
+          email: 'data-bot@balena.zulipchat.com'
+          organization-url: 'https://balena.zulipchat.com'
+          to: 'aspect/data'
+          type: 'stream'
+          topic: 'Data Group - WDYD?'
+          content: "@*data* don't forget to update your latest work items in [Data Group - What Do You Do?](https://github.com/balena-io-experimental/data-group-wdyd). The summary will be published later today, 10 minutes before the company call."

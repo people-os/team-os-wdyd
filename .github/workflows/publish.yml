@@ -1,0 +1,68 @@
+name: 'Publish the WDYD summary'
+
+on:
+  schedule:
+    - cron: '50 14 * * MON'
+
+jobs:
+  create:
+    name: 'Create the summary message'
+    runs-on: ubuntu-latest
+    outputs:
+      content: ${{ steps.message.outputs.CONTENT }}
+    steps:
+      - name: 'Checkout the repository'
+        uses: actions/checkout@v3
+      - name: 'Format the message'
+        id: message
+        run: |
+          echo 'CONTENT<<EOF' >> $GITHUB_OUTPUT
+          echo "$(date +'%Y-%m-%d') edition of [Data Group - What Do You Do?](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}):" >> $GITHUB_OUTPUT
+          cat ./SUMMARY.md >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+  publish:
+    name: 'Publish the summary message'
+    needs: create
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Send the message to Zulip'
+        uses: zulip/github-actions-zulip/send-message@v1
+        with:
+          api-key: ${{ secrets.ZULIP_API_KEY }}
+          email: 'data-bot@balena.zulipchat.com'
+          organization-url: 'https://balena.zulipchat.com'
+          to: 'aspect/data'
+          type: 'stream'
+          topic: 'Data Group - WDYD?'
+          content: ${{ needs.create.outputs.content }}
+      - name: 'Save the message as the GitHub action summary'
+        run: echo "${{ needs.create.outputs.content }}" >> $GITHUB_STEP_SUMMARY
+
+  refresh:
+    name: 'Tag the current state and prepare a fresh SUMMARY file'
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 'Set dynamic environment variables'
+        run: echo "CURRENT_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      - name: 'Checkout the repository'
+        uses: actions/checkout@v3
+      - name: 'Tag and release the current state'
+        uses: ncipollo/release-action@v1
+        with:
+          commit: "master"
+          tag: ${{ env.CURRENT_DATE }}
+          bodyFile: "SUMMARY.md"
+      - name: 'Configure Git credentials'
+        run: |
+          git config user.name "Data Bot"
+          git config user.email "data-bot@balena.zulipchat.com"
+      - name: 'Prepare a fresh summary file'
+        run: |
+          echo "" > ./SUMMARY.md
+          git add .
+          git commit -m "New summary file on $(date +'%Y-%m-%d')"
+          git push origin master

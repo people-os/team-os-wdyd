@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
 env:
-  REMINDER_STREAM: 'loop/team-os'
-  REMINDER_TOPIC: 'TeamOS - WDYD?'
-  REMINDER_MESSAGE: 'TODO'
+  REMINDER_MESSAGE: 'Just do it!'
+  ZULIP_STREAM: '_hack-fridays'
+  ZULIP_TOPIC: 'Team-OS What Do You Do? (Hack Friday)'
 
 jobs:
   publish:
@@ -21,7 +21,7 @@ jobs:
           api-key: ${{ secrets.ZULIP_API_KEY }}
           email: ${{ vars.ZULIP_BOT_EMAIL }}
           organization-url: 'https://balena.zulipchat.com'
-          to: ${{ env.REMINDER_STREAM }}
+          to: ${{ env.ZULIP_STREAM }}
           type: 'stream'
-          topic: ${{ env.REMINDER_TOPIC }}
+          topic: ${{ env.ZULIP_TOPIC }}
           content: ${{ env.REMINDER_MESSAGE }}

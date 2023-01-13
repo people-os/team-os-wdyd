@@ -7,8 +7,8 @@ on:
 
 env:
   SUMMARY_TITLE: 'TeamOS - What Do You Do?'
-  SUMMARY_STREAM: 'loop/team-os'
-  SUMMARY_TOPIC: 'TeamOS - WDYD?'
+  ZULIP_STREAM: '_hack-fridays'
+  ZULIP_TOPIC: 'Team-OS What Do You Do? (Hack Friday)'
 
 jobs:
   create:
@@ -38,9 +38,9 @@ jobs:
           api-key: ${{ secrets.ZULIP_API_KEY }}
           email: ${{ vars.ZULIP_BOT_EMAIL }}
           organization-url: 'https://balena.zulipchat.com'
-          to: ${{ env.SUMMARY_STREAM }}
+          to: ${{ env.ZULIP_STREAM }}
           type: 'stream'
-          topic: ${{ env.SUMMARY_TOPIC }}
+          topic: ${{ env.ZULIP_TOPIC }}
           content: ${{ needs.create.outputs.content }}
       - name: 'Save the message as the GitHub action summary'
         run: echo "${{ needs.create.outputs.content }}" >> $GITHUB_STEP_SUMMARY

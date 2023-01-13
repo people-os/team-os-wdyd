@@ -2,7 +2,13 @@ name: 'Publish the WDYD summary'
 
 on:
   schedule:
-    - cron: '50 14 * * MON'
+    - cron: '45 14 * * MON'
+  workflow_dispatch:
+
+env:
+  SUMMARY_TITLE: 'TeamOS - What Do You Do?'
+  SUMMARY_STREAM: 'loop/team-os'
+  SUMMARY_TOPIC: 'TeamOS - WDYD?'
 
 jobs:
   create:
@@ -17,7 +23,7 @@ jobs:
         id: message
         run: |
           echo 'CONTENT<<EOF' >> $GITHUB_OUTPUT
-          echo "$(date +'%Y-%m-%d') edition of [Data Group - What Do You Do?](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}):" >> $GITHUB_OUTPUT
+          echo "$(date +'%Y-%m-%d') edition of [${SUMMARY_TITLE}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}):" >> $GITHUB_OUTPUT
           cat ./SUMMARY.md >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
@@ -30,11 +36,11 @@ jobs:
         uses: zulip/github-actions-zulip/send-message@v1
         with:
           api-key: ${{ secrets.ZULIP_API_KEY }}
-          email: 'data-bot@balena.zulipchat.com'
+          email: ${{ vars.ZULIP_BOT_EMAIL }}
           organization-url: 'https://balena.zulipchat.com'
-          to: 'aspect/data'
+          to: ${{ env.SUMMARY_STREAM }}
           type: 'stream'
-          topic: 'Data Group - WDYD?'
+          topic: ${{ env.SUMMARY_TOPIC }}
           content: ${{ needs.create.outputs.content }}
       - name: 'Save the message as the GitHub action summary'
         run: echo "${{ needs.create.outputs.content }}" >> $GITHUB_STEP_SUMMARY
@@ -58,8 +64,8 @@ jobs:
           bodyFile: "SUMMARY.md"
       - name: 'Configure Git credentials'
         run: |
-          git config user.name "Data Bot"
-          git config user.email "data-bot@balena.zulipchat.com"
+          git config user.name "${{ vars.ZULIP_BOT_NAME }}"
+          git config user.email "${{ vars.ZULIP_BOT_EMAIL }}"
       - name: 'Prepare a fresh summary file'
         run: |
           echo "" > ./SUMMARY.md

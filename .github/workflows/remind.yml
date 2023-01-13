@@ -2,8 +2,13 @@ name: 'Remind to update the summary'
 
 on:
   schedule:
-    - cron: '0 12 * * FRI'
+    - cron: '0 0 * * FRI'
   workflow_dispatch:
+
+env:
+  REMINDER_STREAM: 'loop/team-os'
+  REMINDER_TOPIC: 'TeamOS - WDYD?'
+  REMINDER_MESSAGE: 'TODO'
 
 jobs:
   publish:
@@ -14,9 +19,9 @@ jobs:
         uses: zulip/github-actions-zulip/send-message@v1
         with:
           api-key: ${{ secrets.ZULIP_API_KEY }}
-          email: 'data-bot@balena.zulipchat.com'
+          email: ${{ vars.ZULIP_BOT_EMAIL }}
           organization-url: 'https://balena.zulipchat.com'
-          to: 'aspect/data'
+          to: ${{ env.REMINDER_STREAM }}
           type: 'stream'
-          topic: 'Data Group - WDYD?'
-          content: "@*data* don't forget to update your latest work items in [Data Group - What Do You Do?](https://github.com/balena-io-experimental/data-group-wdyd). The summary will be published later today, 10 minutes before the company call."
+          topic: ${{ env.REMINDER_TOPIC }}
+          content: ${{ env.REMINDER_MESSAGE }}

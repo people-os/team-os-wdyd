@@ -1,9 +1,11 @@
 - Thanks to Pranas's hack friday efforts and the data aspect sharing their genius ideas, TeamOS now have a TeamOS - WDYD? topic in the loop/team-os stream. This is where our team-osBot posts a summary (or changelog!) of what we're working on and reminds us to keep it updated / post to the all hands call. This is part of our efforts to increase visibility to the team on what TeamOS are planning, doing and have done. So here is what TeamOS is currently up to:
 
 - Contract amendments completed
-  - Note that @maggie0002 has now moved to a full-time contract, glad to have you focusing on balena 100% Arran!
+  - Note that @maggie0002 has now moved to a full-time contract, glad to have you focusing on balena 100% Arran :)
   
-- Finalising parental leave plans for balenistas soon to go on parental leave, sorting arrangments and logistics. 
+- Finalising parental leave plans for balenistas soon to go on parental leave, sorting arrangments and logistics
+
+- All-hands docs for Feb have been created and added to the calendar events
 
 - Defining TeamOS workflow - we now have a
   - Trello board for everything we're working on (improvements, ideas, tasks, admin. etc) - this has a restricted view so we can keep all tasks, whether they contain sensitive info or not, together in one place so we have full visibility as a team on our work

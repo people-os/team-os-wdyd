@@ -2,6 +2,8 @@
 
 - Contract amendments completed
   - Note that @maggie0002 has now moved to a full-time contract, glad to have you focusing on balena 100% Arran!
+  
+- Finalising parental leave plans for balenistas soon to go on parental leave, sorting arrangments and logistics. 
 
 - Defining TeamOS workflow - we now have a
   - Trello board for everything we're working on (improvements, ideas, tasks, admin. etc) - this has a restricted view so we can keep all tasks, whether they contain sensitive info or not, together in one place so we have full visibility as a team on our work

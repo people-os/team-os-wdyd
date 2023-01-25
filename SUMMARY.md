@@ -1,3 +1,9 @@
+`Hey all, out of curiostiy we wanted to ask you all:`
+
+`WHO IS ON TEAMOS AND WHAT DO THEY DO???`
+
+`Please add your comments :)`
+
 
 * Finalising the guidance update around sick & emergency leave within Handbook & added a drop down list within Calamari when choosing sick & emergency leave. This was added in an effort to:
   1. make it easier for everyone to make their requests

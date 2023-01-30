@@ -26,7 +26,7 @@
 
 * Making Trello board updates for patterns, improvements, ideas, tasks, admin, etc. _(this has a restricted view so we can keep all tasks, whether they contain sensitive info or not, together in one place so we have full visibility as a team on our work)_
 
-* Support with daily team needs:
+* Supporting with daily team needs:
     1. Tax process requirements (US employee)
     2. Health insurance questions (US employee) 
     3. Hardware questions/requests

@@ -26,6 +26,8 @@
 
 * Making Trello board updates for patterns, improvements, ideas, tasks, admin, etc. _(this has a restricted view so we can keep all tasks, whether they contain sensitive info or not, together in one place so we have full visibility as a team on our work)_
 
+* A new [people-os/team-os-processes](https://github.com/people-os/team-os-processes) repo has been created in github - this will follow the same format as others balena docs repos.
+
 * Supporting with daily team needs:
     1. Tax process requirements (US employee)
     2. Health insurance questions (US employee) 

@@ -11,3 +11,4 @@
   - Team querries
   - Contract amendments 
 - Meeting 1:1 with team members to hear their feedback and experiences, as well as what the internal support structure can look like in the future [alexS, araceli L. medina, NatasaKyvetou]
+- Slow progress on checking through our GDrive and access permissions [alexS, araceli L. medina, NatasaKyvetou, Apo]

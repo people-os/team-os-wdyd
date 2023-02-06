@@ -3,3 +3,11 @@
 - [poshrolls] created this flowchart as a short hand sense check for 'can I / should I act on this decision?' [(miro version here)](https://miro.com/app/board/uXjVPyjJRpw=/) This is a first iteration so please let me know any examples or edge cases that come up that you're unsure work, definitely don't work. etc so i can make sure the supporting information clarifies anything. Please add comments to [this zulip topic.](https://balena.zulipchat.com/#narrow/stream/345887-loop.2Fteam-os/topic/processes.20for.20decision.20making/near/324870633) This is part of the [decision making toolkit work draft.](https://docs.google.com/document/d/1cVQMP1pRz5rEjvOx8TCYH2Ityt5DitXJuCLTFHNEGD4/edit)
 - Providing feedback, guidance and helping define the restructuring of how balena works with leadership (see leadership updates PSA for more info) [poshrolls, araceli L. medina]
 - Researching various leave policies in other Balena similar organisations to inform our current policies. [alexS]
+- Monthly overcap leave payments generated to be processed for Feb payments [NatasaKyvetou]
+- Parental leave planning and logistics [NatasaKyvetou]
+- TeamOS pipeline work:
+  - Verification of Employment & Supporting Letters issued
+  - Comms with our lawyers for employment/contract advice
+  - Team querries
+  - Contract amendments 
+- Meeting 1:1 with team members to hear their feedback and experiences, as well as what the internal support structure can look like in the future.

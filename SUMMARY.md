@@ -1,18 +1,1 @@
-- Making a first attempt (brain dumping!) at documenting processes in github to review as a group. This is so we can create a framework around how we divide up, link together and visualise processes in a way that's easily understandable and maintainable. [everyone]
-- Defining and providing clarity on who teamos are, what they do and where we interact with other areas of balena [araceli L. medina]
-  - As part of this and to answer last weeks question: **Who do you think is on TeamOS and what do they do?** We have created a diagram to give a high-level glimpse into TeamOS and CompanyOS since we do a lot of collaborative work.
-    <img width="1391" alt="Screen Shot 2023-02-06 at 10 21 28 AM" src="https://user-images.githubusercontent.com/113951721/216998228-93142499-55b4-46a8-b994-3880c7698341.png">
-    - Questions and feedback welcome :)
 
-- [poshrolls] created this flowchart as a short hand sense check for 'can I / should I act on this decision?' [(miro version here)](https://miro.com/app/board/uXjVPyjJRpw=/) This is a first iteration so please let me know any examples or edge cases that come up that you're unsure work, definitely don't work. etc so i can make sure the supporting information clarifies anything. Please add comments to [this zulip topic.](https://balena.zulipchat.com/#narrow/stream/345887-loop.2Fteam-os/topic/processes.20for.20decision.20making/near/324870633) This is part of the [decision making toolkit work draft.](https://docs.google.com/document/d/1cVQMP1pRz5rEjvOx8TCYH2Ityt5DitXJuCLTFHNEGD4/edit)
-- Providing feedback, guidance and helping define the restructuring of how balena works with leadership (see leadership updates PSA for more info) [poshrolls, araceli L. medina]
-- Researching various leave policies in other Balena similar organisations to inform our current policies. [alexS]
-- Monthly overcap leave payments generated to be processed for Feb payments [NatasaKyvetou]
-- Parental leave planning and logistics [NatasaKyvetou]
-- TeamOS pipeline work:
-  - Verification of Employment & Supporting Letters issued
-  - Comms with our lawyers for employment/contract advice
-  - Team querries
-  - Contract amendments 
-- Meeting 1:1 with team members to hear their feedback and experiences, as well as what the internal support structure can look like in the future [alexS, araceli L. medina, NatasaKyvetou]
-- Slow progress on checking through our GDrive and access permissions [alexS, araceli L. medina, NatasaKyvetou, Apo]

@@ -10,4 +10,4 @@
   - Comms with our lawyers for employment/contract advice
   - Team querries
   - Contract amendments 
-- Meeting 1:1 with team members to hear their feedback and experiences, as well as what the internal support structure can look like in the future.
+- Meeting 1:1 with team members to hear their feedback and experiences, as well as what the internal support structure can look like in the future [alexS, araceli L. medina, NatasaKyvetou]

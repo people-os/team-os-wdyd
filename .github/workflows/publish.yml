@@ -7,7 +7,7 @@ on:
 
 env:
   SUMMARY_TITLE: 'TeamOS - What Do You Do?'
-  ZULIP_STREAM: 'loop/team-os'
+  ZULIP_STREAM: 'aspect/people-ops'
   ZULIP_TOPIC: 'TeamOS - WDYD?'
 
 jobs:

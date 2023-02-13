@@ -8,7 +8,7 @@
 
 - Began transfer of People Ops information to Fibery [Laura, Araceli, Lambros]
 
-- Review of Leave and Parental Leave Policies (*see relevant balena Handbook changes/ PRs*) [Alexis, Apo, Natasa]
+- Review of Leave and Parental Leave Policies (*see relevant balena Handbook changes/ PRs*) [Alexis, Apo, Natasa, Araceli]
 
 - Offboarding kick off and logistics [Natasa, Lambros]
 

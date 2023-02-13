@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  REMINDER_MESSAGE: "@*team-os* don't forget to update your latest work items in [TeamOS - What Do You Do?](https://github.com/people-os/team-os-wdyd/blob/master/SUMMARY.md). The summary will be published on Monday, 15 minutes before the company all hands call."
+  REMINDER_MESSAGE: "@*People-ops* don't forget to update your latest work items in [TeamOS - What Do You Do?](https://github.com/people-os/team-os-wdyd/blob/master/SUMMARY.md). The summary will be published on Monday, 15 minutes before the company all hands call."
   ZULIP_STREAM: 'aspect/people-ops'
   ZULIP_TOPIC: 'TeamOS - WDYD?'
 

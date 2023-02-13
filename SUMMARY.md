@@ -2,10 +2,10 @@
 
 - Continuing to define and provide clarity on who teamos are, what they do and where we interact with other areas of balena [araceli L. medina]
 
-- Review of Leave and Parental Leave Policies [Natasa, Alexis, Apo]
+- Review of Leave and Parental Leave Policies [Alexis, Apo, Natasa]
 
 - Offboarding kick off and logistics [Natasa, Lambros]
 
-- Background group for the balena HW changes [Natasa, Apo]
+- Background group for the balena HW changes [Apo, Natasa]
 
 - People-ops and team member feedback check-ins continued [Alexis, Araceli, Natasa]

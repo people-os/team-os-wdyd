@@ -2,7 +2,7 @@
 
 - Continuing to define and provide clarity on who teamos are, what they do and where we interact with other areas of balena [araceli L. medina]
 
-- Review of Leave and Parental Leave Policies (see relevant balena Handbook changes/ PRs) [Alexis, Apo, Natasa]
+- Review of Leave and Parental Leave Policies (*see relevant balena Handbook changes/ PRs*) [Alexis, Apo, Natasa]
 
 - Offboarding kick off and logistics [Natasa, Lambros]
 
@@ -10,4 +10,4 @@
 
 - People-ops and team member feedback check-ins continued [Alexis, Araceli, Natasa]
 
-- Review of 'Home Office and Equipment Policy' making it 'Productivity and Company Equipment Policy' (see relevant balena Handbook changes/ PRs) [Lambros, Apo, Natasa]
+- Review of 'Home Office and Equipment Policy' making it 'Productivity and Company Equipment Policy' (*see relevant balena Handbook changes/ PRs*) [Lambros, Apo, Natasa]

@@ -1,6 +1,6 @@
-# TeamOS - What Do You Do?
+# People-ops - What Do You Do?
 
-### What is TeamOS working on right now?
+### What is People-ops working on right now?
 
 Check the [`SUMMARY`](./SUMMARY.md) file and find out!
 It will also be published to the `aspect/people-ops` Zulip stream every Monday before the company all hands call.

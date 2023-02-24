@@ -1,4 +1,4 @@
-name: 'Remind to update the summary'
+name: 'Remind to update the WDYD summary'
 
 on:
   schedule:
@@ -7,23 +7,20 @@ on:
     - cron: '0 15 * * FRI'
   workflow_dispatch:
 
-env:
-  REMINDER_MESSAGE: "@*People-ops* don't forget to update your latest work items in [TeamOS - What Do You Do?](https://github.com/people-os/team-os-wdyd/blob/master/SUMMARY.md). The summary will be published on Monday, 15 minutes before the company all hands call."
-  ZULIP_STREAM: 'aspect/people-ops'
-  ZULIP_TOPIC: 'TeamOS - WDYD?'
-
 jobs:
   publish:
     name: 'Send the reminder'
     runs-on: ubuntu-latest
     steps:
+      - name: 'Set the dynamic reminder message'
+        run: echo "REMINDER_MESSAGE=${{ vars.ZULIP_PING }} don't forget to update your latest work items in [${{ vars.PROJECT_TITLE }}](https://github.com/${GITHUB_REPOSITORY}) -- the summary will be published on Monday, 15 minutes before the company call." >> $GITHUB_ENV
       - name: 'Send the message to Zulip'
         uses: zulip/github-actions-zulip/send-message@v1
         with:
           api-key: ${{ secrets.ZULIP_API_KEY }}
           email: ${{ vars.ZULIP_BOT_EMAIL }}
-          organization-url: 'https://balena.zulipchat.com'
-          to: ${{ env.ZULIP_STREAM }}
+          organization-url: ${{ vars.ZULIP_ORGANIZATION_URL }}
+          to: ${{ vars.ZULIP_STREAM }}
           type: 'stream'
-          topic: ${{ env.ZULIP_TOPIC }}
+          topic: ${{ vars.ZULIP_TOPIC }}
           content: ${{ env.REMINDER_MESSAGE }}

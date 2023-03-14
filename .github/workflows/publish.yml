@@ -3,12 +3,6 @@ name: 'Publish the WDYD summary'
 on:
   schedule:
     - cron: '45 14 * * MON'
-  workflow_dispatch:
-
-env:
-  SUMMARY_TITLE: 'TeamOS - What Do You Do?'
-  ZULIP_STREAM: 'aspect/people-ops'
-  ZULIP_TOPIC: 'TeamOS - WDYD?'
 
 jobs:
   create:
@@ -19,11 +13,20 @@ jobs:
     steps:
       - name: 'Checkout the repository'
         uses: actions/checkout@v3
+      - name: 'Check for new content'
+        run: |
+          if [ -s ./SUMMARY.md ]; then
+            echo "Summary file is not empty"
+          else
+            echo "Summary file is empty"
+            exit 1
+          fi
       - name: 'Format the message'
+        if: ${{ success() }}
         id: message
         run: |
           echo 'CONTENT<<EOF' >> $GITHUB_OUTPUT
-          echo "$(date +'%Y-%m-%d') edition of [${SUMMARY_TITLE}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}):" >> $GITHUB_OUTPUT
+          echo "$(date +'%Y-%m-%d') edition of [${{ vars.PROJECT_TITLE }}](https://github.com/${GITHUB_REPOSITORY}):" >> $GITHUB_OUTPUT
           cat ./SUMMARY.md >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
@@ -37,38 +40,38 @@ jobs:
         with:
           api-key: ${{ secrets.ZULIP_API_KEY }}
           email: ${{ vars.ZULIP_BOT_EMAIL }}
-          organization-url: 'https://balena.zulipchat.com'
-          to: ${{ env.ZULIP_STREAM }}
+          organization-url: ${{ vars.ZULIP_ORGANIZATION_URL }}
+          to: ${{ vars.ZULIP_STREAM }}
           type: 'stream'
-          topic: ${{ env.ZULIP_TOPIC }}
+          topic: ${{ vars.ZULIP_TOPIC }}
           content: ${{ needs.create.outputs.content }}
       - name: 'Save the message as the GitHub action summary'
         run: echo "${{ needs.create.outputs.content }}" >> $GITHUB_STEP_SUMMARY
 
   refresh:
-    name: 'Tag the current state and prepare a fresh SUMMARY file'
+    name: 'Release the current state and prepare a fresh summary file'
     needs: publish
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: 'Set dynamic environment variables'
+      - name: 'Set the current date as an environment variable'
         run: echo "CURRENT_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       - name: 'Checkout the repository'
         uses: actions/checkout@v3
       - name: 'Tag and release the current state'
         uses: ncipollo/release-action@v1
         with:
-          commit: "master"
+          commit: 'master'
           tag: ${{ env.CURRENT_DATE }}
-          bodyFile: "SUMMARY.md"
+          bodyFile: 'SUMMARY.md'
       - name: 'Configure Git credentials'
         run: |
           git config user.name "${{ vars.ZULIP_BOT_NAME }}"
           git config user.email "${{ vars.ZULIP_BOT_EMAIL }}"
       - name: 'Prepare a fresh summary file'
         run: |
-          echo "" > ./SUMMARY.md
+          echo -n > ./SUMMARY.md
           git add .
-          git commit -m "New summary file on $(date +'%Y-%m-%d')"
+          git commit -m "New summary file on ${CURRENT_DATE}"
           git push origin master
